@@ -12,6 +12,13 @@ console.log('its working');
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
+let myTeam = fifaData.filter(object => object.Year === 2014).filter(object => object.MatchID === 300186456);
+
+console.log(myTeam[0]["Home Team Name"]);
+console.log(myTeam[0]["Away Team Name"]);
+console.log(myTeam[0]["Home Team Goals"]);
+console.log(myTeam[0]["Away Team Goals"]);
+console.log(myTeam[0]["Away Team Goals"] > myTeam[0]["Home Team Goals"] ? `The Away Team won the 2014 world cup final` : `The Home Team won the 2014 world cup final`);
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
