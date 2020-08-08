@@ -23,21 +23,26 @@ console.log(myTeam[0]["Away Team Goals"] > myTeam[0]["Home Team Goals"] ? `Task 
 /* Task 2: Create a function called  getFinals that takes `fifaData` as an argument and returns an array of objects with only finals data */
 
 function getFinals(array) {
-     let filteredArray = array.filter(object => object.Stage === "Final");
-     console.log("Task 2 -----> " , filteredArray);
+     return array.filter(object => object.Stage === "Final");
 };
 
-getFinals(fifaData);
+console.log("Task 2 -----> " , getFinals(fifaData));
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+function getYears(listOfFinalsMatches) {
 
-    /* code here */
+    let years = [];
 
+    listOfFinalsMatches.forEach(match => {
+        years.push(match.Year);
+    });
+    
+    console.log(years);
+    
 };
 
-getYears();
+getYears(getFinals(fifaData));
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
