@@ -1,7 +1,10 @@
 import { fifaData } from './fifa.js';
-console.log(fifaData);
 
-console.log('its working');
+/***************************** This tests to see if the array "fifaData" was properly imported from the file "fifa.js" *****************************/
+// console.log(fifaData);
+// console.log('its working');
+/***************************** This tests to see if the array "fifaData" was properly imported from the file "fifa.js" *****************************/
+
 // ⚽️ M  V P ⚽️ //
 
 /* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
@@ -10,15 +13,17 @@ console.log('its working');
 (b) Away Team name for 2014 world cup final
 (c) Home Team goals for 2014 world cup final
 (d) Away Team goals for 2014 world cup final
-(e) Winner of 2014 world cup final */
+(e) Winner of 2014 world cup final
 
-let myTeam = fifaData.filter(object => object.Year === 2014).filter(object => object.Stage === "Final");
+*************************************************************************************************************/
 
-console.log("Task 1a -----> " + myTeam[0]["Home Team Name"]);
-console.log("Task 1b -----> " + myTeam[0]["Away Team Name"]);
-console.log("Task 1c -----> " + myTeam[0]["Home Team Goals"]);
-console.log("Task 1d -----> " + myTeam[0]["Away Team Goals"]);
-console.log(myTeam[0]["Away Team Goals"] > myTeam[0]["Home Team Goals"] ? `Task 1e -----> The Away Team won the 2014 world cup final` : `Task 1e -----> The Home Team won the 2014 world cup final`);
+let myTeam = fifaData.filter(object => object.Year === 2014).filter(object => object.Stage === "Final")[0];
+
+console.log("Task 1a -----> " + myTeam["Home Team Name"]);
+console.log("Task 1b -----> " + myTeam["Away Team Name"]);
+console.log("Task 1c -----> " + myTeam["Home Team Goals"]);
+console.log("Task 1d -----> " + myTeam["Away Team Goals"]);
+console.log(myTeam["Away Team Goals"] > myTeam["Home Team Goals"] ? `Task 1e -----> The Away Team, ${myTeam["Away Team Name"]}, won the 2014 world cup final` : `Task 1e -----> The Home Team, ${myTeam["Home Team Name"]}, won the 2014 world cup final`);
 
 /* Task 2: Create a function called  getFinals that takes `fifaData` as an argument and returns an array of objects with only finals data */
 
@@ -44,7 +49,7 @@ function getWinners(finalsGames) {
     } else if (match["Home Team Goals"] < match["Away Team Goals"]) {
         return match["Away Team Name"];
     } else if (match["Win Conditions"] !== "") {
-        return match['Win conditions'].split(' ')[0];
+        return `******* ${match['Win conditions'].split(' ')[0]} *******`;
     }
     });
     return winners;
